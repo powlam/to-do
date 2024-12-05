@@ -1,12 +1,15 @@
 <?php
 
 use App\Commands\DefaultCommand;
-use Illuminate\Support\Facades\Artisan;
 
 it('works', function () {
-    Artisan::call(DefaultCommand::class);
+    /* before using RefreshDatabase it was working this way */
+    // use Illuminate\Support\Facades\Artisan;
+    // Artisan::call(DefaultCommand::class);
+    // $output = Artisan::output();
+    // expect($output)->toContain('Here we are!');
 
-    $output = Artisan::output();
-
-    expect($output)->toContain('Here we are!');
+    $this->artisan(DefaultCommand::class)
+        ->expectsOutput('Here we are!')
+        ->assertExitCode(0);
 });
