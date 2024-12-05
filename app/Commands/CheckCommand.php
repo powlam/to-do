@@ -28,7 +28,7 @@ class CheckCommand extends Command
      */
     public function handle()
     {
-        if (Task::count() === 0) {
+        if (Task::opened()->count() === 0) {
             return;
         }
 

@@ -11,7 +11,15 @@ use App\Models\Task;
 //     expect($output)->toContain('Here we are!');
 // });
 
-it('returns nothing if there is no task pending', function () {
+it('returns nothing if there is no tasks', function () {
+    $this->artisan(CheckCommand::class)
+        ->doesntExpectOutput()
+        ->assertExitCode(0);
+});
+
+it('returns nothing if all the tasks are marked as done', function () {
+    Task::factory(3)->create();
+
     $this->artisan(CheckCommand::class)
         ->doesntExpectOutput()
         ->assertExitCode(0);
