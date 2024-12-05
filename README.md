@@ -15,7 +15,7 @@ I recommend creating an alias (`alias to-do="php [PATH]/to-do"`); much more comf
 - `to-do` or `to-do check` returns a list of opened to-do's (oldest first)
     - It returns nothing if there is no task pending
 - `to-do done {Id}` the task is marked as done
-- `to-do done:all` all the opened to-do's are marked as done
+- `to-do done:all` all the opened tasks are marked as done
 - `to-do history` lists every task done (last done first)
 - `to-do clear` removes every task
 

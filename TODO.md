@@ -12,14 +12,14 @@ This is going to be a TO-DO application.
     - `to-do add` asks for the task description, stores it, and returns its id
 - Mark something as done
     - `to-do done {Id}` the task is marked as done
+- Mark all as done
+    - `to-do done:all` all the opened tasks are marked as done
 - Clear data
     - `to-do clear` removes every task, and resets the id
     - It must ask for confirmation
 
 ## TODO
 
-- Mark all as done
-    - `to-do done:all` all the opened to-do's are marked as done
 - History
     - `to-do history` lists every task done: task, created_at and done_at (ordered by done_at desc)
 
