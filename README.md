@@ -1,34 +1,32 @@
-<p align="center">
-    <img title="Laravel Zero" height="100" src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" alt="Laravel Zero Logo" />
-</p>
+# TO-DO-app
 
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://github.com/laravel-zero/laravel-zero/actions/workflows/tests.yml/badge.svg" alt="Build Status" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/dt/laravel-zero/framework.svg" alt="Total Downloads" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/v/laravel-zero/framework.svg?label=stable" alt="Latest Stable Version" /></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/l/laravel-zero/framework.svg" alt="License" /></a>
-</p>
+This console application was created by [Paul Albandoz](https://github.com/powlam), and is my first approach to console applications made using the Laravel ecosystem.
 
-Laravel Zero was created by [Nuno Maduro](https://github.com/nunomaduro) and [Owen Voke](https://github.com/owenvoke), and is a micro-framework that provides an elegant starting point for your console application. It is an **unofficial** and customized version of Laravel optimized for building command-line applications.
-
-- Built on top of the [Laravel](https://laravel.com) components.
-- Optional installation of Laravel [Eloquent](https://laravel-zero.com/docs/database/), Laravel [Logging](https://laravel-zero.com/docs/logging/) and many others.
-- Supports interactive [menus](https://laravel-zero.com/docs/build-interactive-menus/) and [desktop notifications](https://laravel-zero.com/docs/send-desktop-notifications/) on Linux, Windows & MacOS.
-- Ships with a [Scheduler](https://laravel-zero.com/docs/task-scheduling/) and  a [Standalone Compiler](https://laravel-zero.com/docs/build-a-standalone-application/).
-- Integration with [Collision](https://github.com/nunomaduro/collision) - Beautiful error reporting
+- It is a TO-DO application.
+- It allows storing tasks and marking them as done. It also adds functionality to list and clear the tasks.
 
 ------
 
-## Documentation
+## How it works
 
-For full documentation, visit [laravel-zero.com](https://laravel-zero.com/).
+I recommend creating an alias (`alias to-do="php [PATH]/to-do"`); much more comfortable.
 
-## Support the development
-**Do you like this project? Support it by donating**
+- `to-do add` asks for the task, stores it, and returns its id
+- `to-do` or `to-do check` returns a list of opened to-do's (oldest first)
+    - It returns nothing if there is no task pending
+- `to-do done {Id}` the to-do is marked as done
+- `to-do done:all` all the opened to-do's are marked as done
+- `to-do history` lists every task done (last done first)
+- `to-do clear` removes every task
 
-- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
-- Patreon: [Donate](https://www.patreon.com/nunomaduro)
+## How to test
+
+Just run `to-do test`
+
+## Framework
+
+This console application has been created using [Laravel Zero](https://laravel-zero.com/), a micro-framework built on top of [Laravel](https://laravel.com).
 
 ## License
 
-Laravel Zero is an open-source software licensed under the MIT license.
+This is an open-source software licensed under the MIT license.
