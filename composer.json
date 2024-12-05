@@ -18,7 +18,8 @@
     "require": {
         "php": "^8.2.0",
         "illuminate/database": "^11.5",
-        "laravel-zero/framework": "^11.0.3"
+        "laravel-zero/framework": "^11.0.3",
+        "laravel/serializable-closure": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
