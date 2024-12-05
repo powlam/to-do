@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,13 @@ class Task extends Model
         return [
             'done_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Scope a query to only include opened tasks.
+     */
+    public function scopeOpened(Builder $query): void
+    {
+        $query->whereNull('done_at');
     }
 }

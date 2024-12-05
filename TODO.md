@@ -4,15 +4,14 @@ This is going to be a TO-DO application.
 
 ## DONE
 
-- ... nothing yet
-
-## TODO
-- Add something to do (a string)
-    - `to-do add` asks for the task, stores it, and returns its id
 - Check the current to-do's
     - `to-do check` returns a list of opened to-do's (ordered by created_at asc)
     - `to-do` (it also can be called this way, this is the default command)
     - It must return nothing if there is no task pending
+
+## TODO
+- Add something to do (a string)
+    - `to-do add` asks for the task, stores it, and returns its id
 - Mark something as done
     - `to-do done {Id}` the to-do is marked as done
 - Mark all as done
@@ -22,3 +21,5 @@ This is going to be a TO-DO application.
 - Clear data
     - `to-do clear` removes every task, and resets the id
     - It must ask for confirmation
+
+https://github.com/nunomaduro/heminders

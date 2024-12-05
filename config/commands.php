@@ -1,6 +1,6 @@
 <?php
 
-use App\Commands\DefaultCommand;
+use App\Commands\CheckCommand;
 
 return [
 
@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => DefaultCommand::class,
+    'default' => CheckCommand::class,
 
     /*
     |--------------------------------------------------------------------------
