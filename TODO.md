@@ -17,10 +17,12 @@ This is going to be a TO-DO application.
 - Clear data
     - `to-do clear` removes every task, and resets the id
     - It must ask for confirmation
+- History
+    - `to-do history` lists every task done: task, created_at and done_at (ordered by done_at desc)
 
 ## TODO
 
 - History
-    - `to-do history` lists every task done: task, created_at and done_at (ordered by done_at desc)
+    - Fix the test that checks if the table has valid content
 
 https://github.com/nunomaduro/heminders

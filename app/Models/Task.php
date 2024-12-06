@@ -29,4 +29,12 @@ class Task extends Model
     {
         $query->whereNull('done_at');
     }
+
+    /**
+     * Scope a query to only include done tasks.
+     */
+    public function scopeDone(Builder $query): void
+    {
+        $query->whereNotNull('done_at');
+    }
 }
