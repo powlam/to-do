@@ -6,9 +6,11 @@ use App\Models\Task;
 /* before using RefreshDatabase it was working this way */
 // use Illuminate\Support\Facades\Artisan;
 // it('works', function () {
-//     Artisan::call(DefaultCommand::class);
+//     Task::factory(3)->create(['done_at' => null]);
+
+//     Artisan::call(CheckCommand::class);
 //     $output = Artisan::output();
-//     expect($output)->toContain('Here we are!');
+//     expect($output)->toContain(Task::find(1)->text);
 // });
 
 it('returns nothing if there is no tasks', function () {
