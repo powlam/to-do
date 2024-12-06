@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use App\Actions\MarkAllTasksAsDone;
 use LaravelZero\Framework\Commands\Command;
 
-class DoneAllCommand extends Command
+final class DoneAllCommand extends Command
 {
     /**
      * The name and signature of the console command.

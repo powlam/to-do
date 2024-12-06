@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Commands\DoneAllCommand;
 use App\Models\Task;
 
@@ -27,6 +29,6 @@ it('does not change the done date of already marked tasks', function () {
 
     $this->artisan(DoneAllCommand::class);
 
-    expect(Task::find(1)->done_at->format('Y-m-d H:i:s') == $initialTime->format('Y-m-d H:i:s'))->toBeTrue();
+    expect(Task::find(1)->done_at->format('Y-m-d H:i:s') === $initialTime->format('Y-m-d H:i:s'))->toBeTrue();
     expect((int) Task::find(1)->done_at->diffInHours(Task::find(2)->done_at))->toBe(3);
 });

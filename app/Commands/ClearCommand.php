@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use App\Actions\ClearTasks;
@@ -7,7 +9,7 @@ use LaravelZero\Framework\Commands\Command;
 
 use function Laravel\Prompts\confirm;
 
-class ClearCommand extends Command
+final class ClearCommand extends Command
 {
     /**
      * The name and signature of the console command.

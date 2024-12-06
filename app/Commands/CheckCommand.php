@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use App\Models\Task;
@@ -7,7 +9,7 @@ use LaravelZero\Framework\Commands\Command;
 
 use function Termwind\render;
 
-class CheckCommand extends Command
+final class CheckCommand extends Command
 {
     /**
      * The name and signature of the console command.

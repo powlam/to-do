@@ -1,26 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+final class Task extends Model
 {
     use HasFactory;
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts()
-    {
-        return [
-            'done_at' => 'datetime',
-        ];
-    }
 
     /**
      * Scope a query to only include opened tasks.
@@ -36,5 +26,17 @@ class Task extends Model
     public function scopeDone(Builder $query): void
     {
         $query->whereNotNull('done_at');
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts()
+    {
+        return [
+            'done_at' => 'datetime',
+        ];
     }
 }

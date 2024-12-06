@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use App\Models\Task;
@@ -8,7 +10,7 @@ use LaravelZero\Framework\Commands\Command;
 
 use function Laravel\Prompts\table;
 
-class HistoryCommand extends Command
+final class HistoryCommand extends Command
 {
     /**
      * The name and signature of the console command.

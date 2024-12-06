@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use App\Actions\AddTask;
@@ -7,7 +9,7 @@ use LaravelZero\Framework\Commands\Command;
 
 use function Laravel\Prompts\text;
 
-class AddCommand extends Command
+final class AddCommand extends Command
 {
     /**
      * The name and signature of the console command.

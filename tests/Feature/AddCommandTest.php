@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Commands\AddCommand;
 use App\Models\Task;
 use Illuminate\Database\Schema\Builder;
