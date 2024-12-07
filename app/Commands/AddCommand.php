@@ -28,14 +28,16 @@ final class AddCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(AddTask $action)
+    public function handle(AddTask $action): void
     {
         $text = text('Task description');
 
         $task = $action->handle($text, $error);
 
         if (! $task) {
-            $this->error($error);
+            if ($error) {
+                $this->error($error);
+            }
 
             return;
         }

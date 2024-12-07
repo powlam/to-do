@@ -28,7 +28,7 @@ final class ClearCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(ClearTasks $action)
+    public function handle(ClearTasks $action): void
     {
         $confirmed = confirm('Are you sure? This will remove every task FOREVER', false);
 

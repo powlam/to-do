@@ -28,7 +28,7 @@ final class CheckCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         if (Task::opened()->count() === 0) {
             return;

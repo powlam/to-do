@@ -26,12 +26,14 @@ final class DoneCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(MarkTaskAsDone $action)
+    public function handle(MarkTaskAsDone $action): void
     {
         $marked = $action->handle((int) $this->argument('task'), $error);
 
         if (! $marked) {
-            $this->warn($error);
+            if ($error) {
+                $this->warn($error);
+            }
 
             return;
         }

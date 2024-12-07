@@ -26,7 +26,7 @@ final class DoneAllCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(MarkAllTasksAsDone $action)
+    public function handle(MarkAllTasksAsDone $action): void
     {
         $action->handle();
 

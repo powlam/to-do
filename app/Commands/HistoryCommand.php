@@ -29,7 +29,7 @@ final class HistoryCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         if (Task::done()->count() === 0) {
             $this->info('Nothing to show');
@@ -40,9 +40,9 @@ final class HistoryCommand extends Command
         $rows = [];
         foreach (Task::done()->orderBy('done_at', 'desc')->get() as $task) {
             $rows[] = [
-                $task->created_at,
-                $task->done_at,
-                $task->done_at->diffForHumans($task->created_at, ['syntax' => Carbon::DIFF_ABSOLUTE]),
+                $task->created_at?->format('Y-m-d H:i:s') ?? '',
+                $task->done_at?->format('Y-m-d H:i:s') ?? '',
+                (($task->created_at && $task->done_at) ? $task->done_at->diffForHumans($task->created_at, ['syntax' => Carbon::DIFF_ABSOLUTE]) : ''),
                 $task->text,
             ];
         }
