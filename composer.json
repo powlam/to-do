@@ -26,7 +26,8 @@
         "larastan/larastan": "^2.9.12",
         "laravel/pint": "^1.18.3",
         "mockery/mockery": "^1.6.12",
-        "pestphp/pest": "^3.6.0"
+        "pestphp/pest": "^3.6.0",
+        "pestphp/pest-plugin-type-coverage": "^3.2"
     },
     "autoload": {
         "psr-4": {
