@@ -13,6 +13,6 @@ final class ClearTasks
      */
     public function handle(): void
     {
-        Task::truncate();
+        Task::ofActiveBag()->delete();
     }
 }

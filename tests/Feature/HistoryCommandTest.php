@@ -30,3 +30,14 @@ it('does not show a list if all the tasks are opened', function () {
 //         ->doesntExpectOutputToContain(Task::find(3)->text)
 //         ->assertExitCode(0);
 // });
+
+// it('does not list tasks of other bags', function () {
+//     Task::factory(2)->create(['bag_id' => 1]);
+//     Task::factory(1)->create();
+
+//     $this->artisan(HistoryCommand::class)
+//         ->expectsOutputToContain(Task::find(1)->text)
+//         ->expectsOutputToContain(Task::find(2)->text)
+//         ->doesntExpectOutputToContain(Task::find(3)->text)
+//         ->assertExitCode(0);
+// });

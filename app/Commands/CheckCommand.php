@@ -30,7 +30,7 @@ final class CheckCommand extends Command
      */
     public function handle(): void
     {
-        if (Task::opened()->count() === 0) {
+        if (Task::ofActiveBag()->opened()->count() === 0) {
             return;
         }
 
@@ -40,7 +40,7 @@ final class CheckCommand extends Command
             </div>
         HTML);
 
-        foreach (Task::opened()->get() as $task) {
+        foreach (Task::ofActiveBag()->opened()->get() as $task) {
             $this->info(sprintf('%d: %s', $task->id, $task->text));
         }
     }

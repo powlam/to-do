@@ -8,9 +8,9 @@ use App\Models\Bag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bag>
  */
-final class TaskFactory extends Factory
+final class BagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,9 +20,8 @@ final class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'bag_id' => Bag::factory(),
-            'text' => $this->faker->paragraph(),
-            'done_at' => $this->faker->dateTime,
+            'name' => $this->faker->unique()->word(),
+            'is_active' => Bag::active()->doesntExist(),
         ];
     }
 }

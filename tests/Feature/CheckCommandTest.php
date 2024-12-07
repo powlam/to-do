@@ -30,7 +30,7 @@ it('returns nothing if all the tasks are marked as done', function () {
 });
 
 it('lists all the opened tasks', function () {
-    Task::factory(3)->create(['done_at' => null]);
+    Task::factory(3)->create(['bag_id' => 1, 'done_at' => null]);
 
     $this->artisan(CheckCommand::class)
         ->expectsOutputToContain(Task::find(1)->text)
@@ -39,4 +39,13 @@ it('lists all the opened tasks', function () {
         ->assertExitCode(0);
 
     expect(Task::whereNull('done_at')->count())->toBe(3);
+});
+
+it('does not show tasks of other bags', function () {
+    Task::factory(3)->create(['bag_id' => 1, 'done_at' => null]);
+    Task::factory()->create(['done_at' => null]);
+
+    $this->artisan(CheckCommand::class)
+        ->doesntExpectOutputToContain(Task::find(4)->text)
+        ->assertExitCode(0);
 });

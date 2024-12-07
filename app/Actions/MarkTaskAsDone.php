@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use App\Models\Bag;
 use App\Models\Task;
 
 final class MarkTaskAsDone
@@ -18,6 +19,12 @@ final class MarkTaskAsDone
         $task = Task::find($task_id);
         if (! $task) {
             $error = 'The task does not exist';
+
+            return false;
+        }
+
+        if ($task->bag_id !== Bag::active()->first()?->id) {
+            $error = 'The task does not belong to the active bag';
 
             return false;
         }

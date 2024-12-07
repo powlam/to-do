@@ -13,7 +13,7 @@ final class MarkAllTasksAsDone
      */
     public function handle(): void
     {
-        Task::opened()->update([
+        Task::ofActiveBag()->opened()->update([
             'done_at' => now(),
         ]);
     }

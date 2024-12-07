@@ -31,14 +31,14 @@ final class HistoryCommand extends Command
      */
     public function handle(): void
     {
-        if (Task::done()->count() === 0) {
+        if (Task::ofActiveBag()->done()->count() === 0) {
             $this->info('Nothing to show');
 
             return;
         }
 
         $rows = [];
-        foreach (Task::done()->orderBy('done_at', 'desc')->get() as $task) {
+        foreach (Task::ofActiveBag()->done()->orderBy('done_at', 'desc')->get() as $task) {
             $rows[] = [
                 $task->created_at?->format('Y-m-d H:i:s') ?? '',
                 $task->done_at?->format('Y-m-d H:i:s') ?? '',

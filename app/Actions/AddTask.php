@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
+use App\Models\Bag;
 use App\Models\Task;
 use Illuminate\Database\Schema\Builder;
 
@@ -21,6 +22,7 @@ final class AddTask
         }
 
         return Task::create([
+            'bag_id' => Bag::active()->first()?->id,
             'text' => $text,
             'done_at' => null,
         ]);

@@ -8,6 +8,7 @@ use Database\Factories\TaskFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Task extends Model
 {
@@ -22,6 +23,26 @@ final class Task extends Model
     protected $casts = [
         'done_at' => 'datetime',
     ];
+
+    /**
+     * Get the bag that owns the task.
+     *
+     * @return BelongsTo<Bag, Task>
+     */
+    public function bag(): BelongsTo
+    {
+        return $this->belongsTo(Bag::class);
+    }
+
+    /**
+     * Scope a query to only include tasks of the active bag.
+     *
+     * @param  Builder<Task>  $query
+     */
+    public function scopeOfActiveBag(Builder $query): void
+    {
+        $query->where('bag_id', Bag::active()->first()?->id);
+    }
 
     /**
      * Scope a query to only include opened tasks.
