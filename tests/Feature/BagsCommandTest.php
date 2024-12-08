@@ -18,7 +18,7 @@ it('lists all the bags', function () {
 
 it('indicates which is the active bag', function () {
     Bag::factory(3)->create();
-    Bag::find(2)->update(['is_active' => true]);
+    Bag::find(2)->setActive();
 
     $this->artisan(BagsCommand::class)
         ->expectsOutputToContain('► 2:')

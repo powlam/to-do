@@ -38,4 +38,10 @@ final class Bag extends Model
     {
         $query->where('is_active', true);
     }
+
+    public function setActive(): void
+    {
+        self::where('id', '!=', $this->id)->update(['is_active' => false]);
+        $this->update(['is_active' => true]);
+    }
 }
