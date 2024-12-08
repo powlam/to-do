@@ -27,6 +27,7 @@ This is going to be a TO-DO application.
     - `todo bags` lists all the bags, indicating which is the active one (ordered by bag name)
     - `todo bag:new` creates a new bag
     - `todo bag {Id}` sets the bag as active
+    - `todo check:bags` checks each bag to know if they have opened tasks; it does not list the tasks
 
 ## TODO
 
@@ -38,7 +39,6 @@ This is going to be a TO-DO application.
         - renames the active one if no Id is provided
     - `todo bag:delete {?Id}` deletes a bag; requires confirmation
         - deletes the active one if no Id is provided
-    - `todo check:bags` checks each bag to know if they have opened tasks; it does not list the tasks
 
 
 https://github.com/nunomaduro/heminders
