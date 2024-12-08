@@ -24,6 +24,7 @@ This is going to be a TO-DO application.
     - Different bags for the to-do's.
     - One of the bags is the active one
     - Create a default bag initially
+    - `todo bags` lists all the bags, indicating which is the active one (ordered by bag name)
 
 ## TODO
 
@@ -31,7 +32,6 @@ This is going to be a TO-DO application.
     - Fix the test that checks if the table has valid content
 
 - Bags
-    - `todo bags` lists all the bags, indicating which is the active one (ordered by bag name)
     - `todo bag:new` creates a new bag
     - `todo bag {Id}` sets the bag as active
     - `todo bag:rename {?Id}` renames a bag
