@@ -28,6 +28,8 @@ This is going to be a TO-DO application.
     - `todo bag:new` creates a new bag
     - `todo bag {Id}` sets the bag as active
     - `todo check:bags` checks each bag to know if they have opened tasks; it does not list the tasks
+    - `todo bag:rename {Id?}` renames a bag
+        - renames the active one if no Id is provided
 
 ## TODO
 
@@ -35,9 +37,7 @@ This is going to be a TO-DO application.
     - Fix the test that checks if the table has valid content
 
 - Bags
-    - `todo bag:rename {?Id}` renames a bag
-        - renames the active one if no Id is provided
-    - `todo bag:delete {?Id}` deletes a bag; requires confirmation
+    - `todo bag:delete {Id?}` deletes a bag; requires confirmation
         - deletes the active one if no Id is provided
 
 
