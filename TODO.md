@@ -30,15 +30,13 @@ This is going to be a TO-DO application.
     - `todo check:bags` checks each bag to know if they have opened tasks; it does not list the tasks
     - `todo bag:rename {Id?}` renames a bag
         - renames the active one if no Id is provided
+    - `todo bag:delete {Id?}` deletes a bag; requires confirmation
+        - deletes the active one if no Id is provided
 
 ## TODO
 
 - History
     - Fix the test that checks if the table has valid content
-
-- Bags
-    - `todo bag:delete {Id?}` deletes a bag; requires confirmation
-        - deletes the active one if no Id is provided
 
 
 https://github.com/nunomaduro/heminders
