@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Database\Factories\BagFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -43,5 +44,18 @@ final class Bag extends Model
     {
         self::where('id', '!=', $this->id)->update(['is_active' => false]);
         $this->update(['is_active' => true]);
+    }
+
+    /**
+     * Get the description attribute.
+     *
+     * @return Attribute<string, null>
+     */
+    protected function description(): Attribute
+    {
+        return Attribute::make(
+            // @phpstan-ignore-next-line
+            get: fn (mixed $value, mixed $attributes) => is_array($attributes) ? sprintf('%d [%s]', $attributes['id'], $attributes['name']) : '',
+        );
     }
 }

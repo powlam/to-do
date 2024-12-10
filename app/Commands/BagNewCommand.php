@@ -43,6 +43,6 @@ final class BagNewCommand extends Command
         }
 
         $this->info('Bag created');
-        $this->info(sprintf('%d: %s', $bag->id, $bag->name));
+        $this->info($bag->description);
     }
 }

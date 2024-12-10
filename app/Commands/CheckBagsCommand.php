@@ -30,9 +30,9 @@ final class CheckBagsCommand extends Command
     {
         foreach (Bag::with('tasks')->orderBy('name')->get() as $bag) {
             if ($bag->tasks()->opened()->count() === 0) {
-                $this->info(sprintf('%s%d: Bag [%s] is up to date', ($bag->is_active ? '► ' : ''), $bag->id, $bag->name));
+                $this->info(sprintf('%sBag %s is up to date', ($bag->is_active ? '► ' : ''), $bag->description));
             } else {
-                $this->warn(sprintf('%s%d: Bag [%s] has pending tasks', ($bag->is_active ? '► ' : ''), $bag->id, $bag->name));
+                $this->warn(sprintf('%sBag %s has pending tasks', ($bag->is_active ? '► ' : ''), $bag->description));
             }
         }
     }

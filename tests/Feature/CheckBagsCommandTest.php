@@ -22,7 +22,7 @@ it('indicates which is the active bag', function () {
     Bag::find(2)->setActive();
 
     $this->artisan(CheckBagsCommand::class)
-        ->expectsOutputToContain('► 2:')
+        ->expectsOutputToContain('► Bag 2 ')
         ->assertExitCode(0);
 });
 
@@ -32,8 +32,8 @@ it('says which bags have opened tasks', function () {
     Task::factory(2)->create(['bag_id' => 2]);
 
     $this->artisan(CheckBagsCommand::class)
-        ->expectsOutputToContain('Bag ['.Bag::find(1)->name.'] has pending tasks')
-        ->expectsOutputToContain('Bag ['.Bag::find(2)->name.'] is up to date')
-        ->expectsOutputToContain('Bag ['.Bag::find(3)->name.'] is up to date')
+        ->expectsOutputToContain('Bag '.Bag::find(1)->description.' has pending tasks')
+        ->expectsOutputToContain('Bag '.Bag::find(2)->description.' is up to date')
+        ->expectsOutputToContain('Bag '.Bag::find(3)->description.' is up to date')
         ->assertExitCode(0);
 });

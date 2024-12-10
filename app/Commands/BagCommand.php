@@ -38,6 +38,6 @@ final class BagCommand extends Command
             return;
         }
 
-        $this->info(sprintf('Bag %d [%s] is now active', $bag->id, $bag->name));
+        $this->info('Bag '.$bag->description.' is now active');
     }
 }

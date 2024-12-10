@@ -21,6 +21,6 @@ it('indicates which is the active bag', function () {
     Bag::find(2)->setActive();
 
     $this->artisan(BagsCommand::class)
-        ->expectsOutputToContain('► 2:')
+        ->expectsOutputToContain('► 2 ')
         ->assertExitCode(0);
 });

@@ -34,7 +34,7 @@ final class BagsCommand extends Command
         }
 
         foreach (Bag::orderBy('name')->get() as $bag) {
-            $this->info(sprintf('%s%d: %s', ($bag->is_active ? '► ' : ''), $bag->id, $bag->name));
+            $this->info(($bag->is_active ? '► ' : '').$bag->description);
         }
     }
 }

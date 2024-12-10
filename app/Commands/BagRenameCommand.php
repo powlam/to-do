@@ -45,6 +45,6 @@ final class BagRenameCommand extends Command
         }
 
         $this->info('Bag renamed');
-        $this->info(sprintf('%d: %s', $bag->id, $bag->name));
+        $this->info($bag->description);
     }
 }

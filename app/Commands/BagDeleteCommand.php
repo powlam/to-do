@@ -50,7 +50,7 @@ final class BagDeleteCommand extends Command
             if ($active_bag_id === $bag_id) {
                 $new_active_bag = Bag::active()->first();
                 if ($new_active_bag) {
-                    $this->info(sprintf('The active bag is now %d [%s]', $new_active_bag->id, $new_active_bag->name));
+                    $this->info('The active bag is now '.$new_active_bag->description);
                 }
             }
         } else {
