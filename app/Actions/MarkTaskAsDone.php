@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Actions;
 
-use App\Models\Bag;
 use App\Models\Task;
+use App\Services\BagService;
 
 final class MarkTaskAsDone
 {
@@ -23,7 +23,7 @@ final class MarkTaskAsDone
             return false;
         }
 
-        if ($task->bag_id !== Bag::active()->first()?->id) {
+        if ($task->bag_id !== BagService::activeBag()?->id) {
             $error = 'The task does not belong to the active bag';
 
             return false;

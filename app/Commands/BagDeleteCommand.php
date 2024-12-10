@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Actions\DeleteBag;
-use App\Models\Bag;
+use App\Services\BagService;
 use LaravelZero\Framework\Commands\Command;
 
 use function Laravel\Prompts\confirm;
@@ -34,7 +34,7 @@ final class BagDeleteCommand extends Command
         $confirmed = confirm('Are you sure? This will remove FOREVER the bag', false);
 
         if ($confirmed) {
-            $active_bag_id = Bag::active()->first()?->id;
+            $active_bag_id = BagService::activeBag()?->id;
             $bag_id = (int) ($this->argument('bag') ?: $active_bag_id);
 
             $action->handle($bag_id, $error);
@@ -48,7 +48,7 @@ final class BagDeleteCommand extends Command
             $this->info('Bag deleted');
 
             if ($active_bag_id === $bag_id) {
-                $new_active_bag = Bag::active()->first();
+                $new_active_bag = BagService::activeBag();
                 if ($new_active_bag) {
                     $this->info('The active bag is now '.$new_active_bag->description);
                 }

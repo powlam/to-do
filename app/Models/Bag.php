@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\BagService;
 use Database\Factories\BagFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -44,6 +45,7 @@ final class Bag extends Model
     {
         self::where('id', '!=', $this->id)->update(['is_active' => false]);
         $this->update(['is_active' => true]);
+        BagService::activeBag(refresh: true);
     }
 
     /**

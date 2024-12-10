@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\BagService;
 use Database\Factories\TaskFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -41,7 +42,7 @@ final class Task extends Model
      */
     public function scopeOfActiveBag(Builder $query): void
     {
-        $query->where('bag_id', Bag::active()->first()?->id);
+        $query->where('bag_id', BagService::activeBag()?->id);
     }
 
     /**
