@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Models\Task;
+use App\Services\BagService;
 use LaravelZero\Framework\Commands\Command;
 
 use function Termwind\render;
@@ -34,11 +35,13 @@ final class CheckCommand extends Command
             return;
         }
 
-        render(<<<'HTML'
-            <div class="py-1 ml-2">
-                <div class="px-1 bg-green-300 text-black">There are pending tasks</div>
-            </div>
-        HTML);
+        $bag = BagService::activeBag();
+        render('
+<div class="pt-1">
+    <span class="px-1 bg-gray-600 text-white">'.$bag?->description.'</span>
+    <span class="px-1 bg-green-300 text-black">There are pending tasks</span>
+</div>
+');
 
         foreach (Task::ofActiveBag()->opened()->get() as $task) {
             $this->info(sprintf('%d: %s', $task->id, $task->text));

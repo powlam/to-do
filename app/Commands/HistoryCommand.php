@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Commands;
 
 use App\Models\Task;
+use App\Services\BagService;
 use Carbon\Carbon;
 use LaravelZero\Framework\Commands\Command;
 
 use function Laravel\Prompts\table;
+use function Termwind\render;
 
 final class HistoryCommand extends Command
 {
@@ -31,6 +33,13 @@ final class HistoryCommand extends Command
      */
     public function handle(): void
     {
+        $bag = BagService::activeBag();
+        render('
+<div class="pt-1">
+    <span class="px-1 bg-gray-600 text-white">'.$bag?->description.'</span>
+</div>
+');
+
         if (Task::ofActiveBag()->done()->count() === 0) {
             $this->info('Nothing to show');
 
