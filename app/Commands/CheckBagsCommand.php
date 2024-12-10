@@ -28,7 +28,7 @@ final class CheckBagsCommand extends Command
      */
     public function handle(): void
     {
-        foreach (Bag::with('tasks')->orderBy('name')->get() as $bag) {
+        foreach (Bag::with('tasks')->orderBy('name')->get()->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE) as $bag) {
             if ($bag->tasks()->opened()->count() === 0) {
                 $this->info(sprintf('%sBag %s is up to date', ($bag->is_active ? '► ' : ''), $bag->description));
             } else {

@@ -33,7 +33,7 @@ final class BagsCommand extends Command
             Bag::factory()->create(['name' => 'default']);
         }
 
-        foreach (Bag::orderBy('name')->get() as $bag) {
+        foreach (Bag::orderBy('name')->get()->sortBy('name', SORT_NATURAL | SORT_FLAG_CASE) as $bag) {
             $this->info(($bag->is_active ? '► ' : '').$bag->description);
         }
     }
