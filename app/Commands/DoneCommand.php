@@ -17,7 +17,7 @@ final class DoneCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'done {task}';
+    protected $signature = 'done {task : ID of the task}';
 
     /**
      * The console command description.

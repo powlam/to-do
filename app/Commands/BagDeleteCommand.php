@@ -17,7 +17,7 @@ final class BagDeleteCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'bag:delete {bag?}';
+    protected $signature = 'bag:delete {bag? : ID of the bag}';
 
     /**
      * The console command description.

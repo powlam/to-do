@@ -17,7 +17,7 @@ final class BagRenameCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'bag:rename {bag?}';
+    protected $signature = 'bag:rename {bag? : ID of the bag}';
 
     /**
      * The console command description.

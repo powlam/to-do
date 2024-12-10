@@ -14,7 +14,7 @@ final class BagCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'bag {bag}';
+    protected $signature = 'bag {bag : ID of the bag}';
 
     /**
      * The console command description.
